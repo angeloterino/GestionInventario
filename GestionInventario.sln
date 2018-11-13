@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario", "GestionInventario\GestionInventario.csproj", "{7E650129-3912-440E-9A07-DF7F4E3A2ACC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario.UI", "GestionInventario\GestionInventario.UI.csproj", "{7E650129-3912-440E-9A07-DF7F4E3A2ACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario.Services", "GestionInventario.Services\GestionInventario.Services.csproj", "{69002904-4A11-4C61-B8EC-1B755FBF98F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario.Data", "GestionInventario.Data\GestionInventario.Data.csproj", "{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7E650129-3912-440E-9A07-DF7F4E3A2ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E650129-3912-440E-9A07-DF7F4E3A2ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E650129-3912-440E-9A07-DF7F4E3A2ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69002904-4A11-4C61-B8EC-1B755FBF98F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69002904-4A11-4C61-B8EC-1B755FBF98F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69002904-4A11-4C61-B8EC-1B755FBF98F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69002904-4A11-4C61-B8EC-1B755FBF98F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
