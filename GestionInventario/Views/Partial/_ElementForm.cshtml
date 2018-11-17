@@ -12,15 +12,8 @@
         </div>
         <div class="col">
             <div class="input-field">
-                <select>
-                    @foreach(string option in Model.TypeOptions)
-                    {
-                        <option @(Model.Type == option?"selected":"") >@option</option>
-                    }
-                </select>
-                @Html.DropDownListFor(model => model.Type, new SelectList(Model.TypeOptions));
-                <!--<input type="text" id="type" name="type" value="@Model.Type" />-->
-                <label class="@(Model.Type != null ? "active" : "")">Tipo</label>
+                @Html.DropDownListFor(model => model.Type, new SelectList(Model.TypeOptions), new { @class = "dropdown" })
+                <label for="Type">Tipo</label>
             </div>
         </div>
         <div class="col">
@@ -42,3 +35,4 @@
     <a href="#!" data-value="@Model.Id" class=" modal-action modal-close waves-effect waves-light green btn btn-default">Guardar</a>
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancelar</a>
 </div>
+<script>$('document').ready(function () { $('select').formSelect();});</script>
