@@ -1,0 +1,44 @@
+﻿@using GestionInventario.Models
+@model Element
+<div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+    <div class="row">
+        <div class="col">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value="@Model.Name" />
+                <label for="name" class="@(Model.Name != null ? "active" : "")">Nombre</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-field">
+                <select>
+                    @foreach(string option in Model.TypeOptions)
+                    {
+                        <option @(Model.Type == option?"selected":"") >@option</option>
+                    }
+                </select>
+                @Html.DropDownListFor(model => model.Type, new SelectList(Model.TypeOptions));
+                <!--<input type="text" id="type" name="type" value="@Model.Type" />-->
+                <label class="@(Model.Type != null ? "active" : "")">Tipo</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-field">
+                <input type="text" id="fechaCaducidad" name="fechaCaducidad" value="@Model.ExpireDate" />
+                <label for="fechaCaducidad" class="@(Model.ExpireDate != null ? "active" : "")">Fecha de Caducidad</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-field">
+                <input type="text" id="quantity" name="quantity" value="@Model.Quantity" />
+                <label for="quantity" class="@(Model.Quantity != null ? "active" : "")">Cantidad</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <a href="#!" data-value="@Model.Id" class=" modal-action modal-close waves-effect waves-light red btn btn-danger">Eliminar</a>
+    <a href="#!" data-value="@Model.Id" class=" modal-action modal-close waves-effect waves-light green btn btn-default">Guardar</a>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancelar</a>
+</div>

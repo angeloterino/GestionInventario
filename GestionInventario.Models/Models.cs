@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionInventario.Data.Models
+namespace GestionInventario.Models
 {
     public class Element
     {
@@ -12,6 +12,8 @@ namespace GestionInventario.Data.Models
         public string Name { get; set; }
         public string Type { get; set; }
         public string ExpireDate { get; set; }
+        public bool Expired { get; set; }
         public int Quantity { get; set; }
+        public List<String> TypeOptions { get{ return new List<String>{ "Comida", "Bebida" }; } }
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario.Services"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario.Data", "GestionInventario.Data\GestionInventario.Data.csproj", "{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionInventario.Models", "GestionInventario.Models\GestionInventario.Models.csproj", "{6DD3C519-A56A-45E1-9C6A-A9CE6D51111B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCAC72E0-9EDC-4061-837F-FB850C3FBF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD3C519-A56A-45E1-9C6A-A9CE6D51111B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD3C519-A56A-45E1-9C6A-A9CE6D51111B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD3C519-A56A-45E1-9C6A-A9CE6D51111B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD3C519-A56A-45E1-9C6A-A9CE6D51111B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

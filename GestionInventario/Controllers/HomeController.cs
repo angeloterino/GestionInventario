@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GestionInventario.Services;
+using GestionInventario.Models;
 
 namespace GestionInventario.Controllers
 {
@@ -10,7 +12,12 @@ namespace GestionInventario.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["Data"] == null)
+            {
+                InventarioService service = new InventarioService();
+                Session["Data"] = service.GetAllElements();
+            }
+            return View(Session["Data"]);
         }
 
         public ActionResult About()
@@ -25,6 +32,13 @@ namespace GestionInventario.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [HttpGet]
+        public PartialViewResult GetElementForm(string id)
+        {
+            int _id = int.TryParse(id, out _id) ? _id : 0;
+            Element model = _id == 0? new Element(): new InventarioService().GetElementById(_id);
+            return PartialView("~/Views/Partial/_ElementForm.cshtml", model);
         }
     }
 }
