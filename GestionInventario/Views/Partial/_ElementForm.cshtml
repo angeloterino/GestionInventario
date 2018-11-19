@@ -1,8 +1,15 @@
 ﻿@using GestionInventario.Models
 @model Element
 <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+
+    @if (Model.Id != 0)
+    {
+        <h4>Editar Elemento</h4>
+    }
+    else
+    {
+        <h4>Nuevo Elemento</h4>
+    }
     <form class="form">
         <div class="row">
             <div class="col">
