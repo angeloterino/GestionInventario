@@ -1,36 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="row">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Nombre:</th>
-                <th>Tipo:</th>
-                <th>Cantidad:</th>
-                <th>Fecha de Caducidad</th>
-                <th><a href="javascript:viewForm(0)" class="btn btn-default" data-value="0">Nuevo</a></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var item in Model)
-            {
-                <tr>
-                    <td>@item.Name</td>
-                    <td>@item.Type</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.ExpireDate 
-                        @if (item.Expired != null && item.Expired)
-                        {
-                            <i class="material-icons red-text">report</i>
-                        }
-                    </td>
-                    <td><a href="javascript:viewForm(@item.Id)" class="btn btn-default" data-value="@item.Id">Editar</a></td>
-                </tr>
-            }
-        </tbody>
-    </table>
+@model IEnumerable<GestionInventario.Models.Element>
+<div class="progress" style="display:none;">
+    <div class="indeterminate"></div>
+</div>
+<div class="content row">
+    @{Html.RenderPartial("~/Views/Partial/_ElementTable.cshtml", Model); }
 </div>
 <div class="modal" id="modal">
 </div>

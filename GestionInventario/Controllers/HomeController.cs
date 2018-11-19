@@ -12,12 +12,12 @@ namespace GestionInventario.Controllers
     {
         public ActionResult Index()
         {
-            if (Session["Data"] == null)
-            {
-                InventarioService service = new InventarioService();
-                Session["Data"] = service.GetAllElements();
-            }
-            return View(Session["Data"]);
+            return View( new InventarioService().GetAllElements());
+        }
+
+        public PartialViewResult GetElementTable()
+        {
+            return PartialView("~/Views/Partial/_ElementTable.cshtml", new InventarioService().GetAllElements());
         }
 
         public ActionResult About()

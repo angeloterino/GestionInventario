@@ -14,6 +14,7 @@ namespace GestionInventario.Models
         public string ExpireDate { get; set; }
         public bool Expired { get; set; }
         public int Quantity { get; set; }
+        public bool LessQuantity { get; set; }
         public List<String> TypeOptions { get{ return new List<String>{ "Comida", "Bebida" }; } }
     }
 }

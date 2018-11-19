@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GestionInventario.Models.Element>
+<table class="table">
+    <tr>
+        <th>Nombre:</th>
+        <th>Tipo:</th>
+        <th>Cantidad:</th>
+        <th>Fecha de Caducidad</th>
+        <th><a href="javascript:viewForm(0)" class="btn btn-default" data-value="0">Nuevo</a></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpireDate)
+            @if (item.Expired != null && item.Expired)
+            {
+                <i class="material-icons red-text" title="Producto caducado">report</i>
+            }
+            @if (item.LessQuantity != null && item.LessQuantity)
+            {
+                <i class="material-icons yellow-text" title="Stock reducido">report_problem</i>
+            }
+        </td>
+        <td><a href="javascript:viewForm(@item.Id)" class="btn btn-default" data-value="@item.Id">Editar</a></td>
+    </tr>
+    }
+
+</table>

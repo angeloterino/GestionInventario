@@ -12,38 +12,23 @@ namespace GestionInventario.Services
     {
         public List<Element> GetAllElements()
         {
-            using (Data.Data data = new Data.Data())
-            {
-                return data.GetAllElements().ToList();
-            }
+            return Data.Data.GetAllElements().ToList();
         }
         public Element GetElementById(int id)
         {
-            using (Data.Data data = new Data.Data())
-            {
-                return data.GetElementById(id);
-            }
+            return Data.Data.GetElementById(id);
         }
         public bool SetElement(int id, Element obj)
         {
-            using (Data.Data data = new Data.Data())
-            {
-                return data.SetElement(id, obj);
-            }
+            return Data.Data.SetElement(id, obj);
         }
         public bool InsertElement(Element obj)
         {
-            using (Data.Data data = new Data.Data())
-            {
-                return data.InsertElement(obj);
-            }
+            return Data.Data.InsertElement(obj);
         }
         public bool DeleteElement(int id)
         {
-            using (Data.Data data = new Data.Data())
-            {
-                return data.RemoveElementById(id);
-            }
+            return Data.Data.RemoveElementById(id);
         }
     }
 }

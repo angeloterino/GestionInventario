@@ -9,53 +9,51 @@ namespace GestionInventario.Data
 {
     public class Memory
     {
-        public Element[] DataElements = {
+        private static Element[] dataElements = {
             new Element { Id = 1, Name = "Coco en lata", Quantity = 0, Type = "Comida", ExpireDate = new DateTime(2020, 10, 10).ToShortDateString() },
             new Element { Id = 2, Name = "Salmón noruego", Quantity = 0, Type = "Comida", ExpireDate = new DateTime(2020, 10, 10).ToShortDateString() },
             new Element { Id = 3, Name = "Cerveza", Quantity = 0, Type = "Bebida", ExpireDate = new DateTime(2020, 10, 10).ToShortDateString() },
             new Element { Id = 4, Name = "Cola", Quantity = 0, Type = "Bebida", ExpireDate = new DateTime(2020, 10, 10).ToShortDateString() },
             new Element { Id = 5, Name = "Patatas fritas", Quantity = 0, Type = "Comida", ExpireDate = new DateTime(2020, 10, 10).ToShortDateString() }
         };
+        
+        public static Element[] DataElements { get => dataElements; set => dataElements = value; }
     }
 
-    public class Data : IDisposable
+    public static class Data 
     {
-        public Data()
-        {
-            DDBB.ElementTable = new Memory().DataElements;
-        }
-        public Element[] GetAllElements()
+        public static Element[] GetAllElements()
         {
             return DDBB.ElementTable;
         }
-        public Element GetElementById(int id)
+        public static Element GetElementById(int id)
         {
             return DDBB.ElementTable.Where(m => m.Id == id).FirstOrDefault();
         }
-        public bool SetElement(int id, Element obj)
+        public static bool SetElement(int id, Element obj)
         {
-            DDBB.ElementTable.SetValue(obj, Array.IndexOf(DDBB.ElementTable, obj));
+            obj.Expired = DateTime.Parse(obj.ExpireDate) < DateTime.Now;
+            Element auxObj = DDBB.ElementTable.Where(m => m.Id == id).First();
+            obj.LessQuantity = auxObj.Quantity > obj.Quantity;
+            DDBB.ElementTable.SetValue(obj, Array.IndexOf(DDBB.ElementTable, auxObj));
             return true;
         }
-        public bool InsertElement(Element obj)
+        public static bool InsertElement(Element obj)
         {
+            obj.Id = DDBB.ElementTable.Max(m => m.Id) + 1;
             Element[] aux = {obj};
-            DDBB.ElementTable.Concat(aux);
+            DDBB.ElementTable = DDBB.ElementTable.Concat(aux).ToArray();
             return true;
         }
-        public bool RemoveElementById(int id)
+        public static bool RemoveElementById(int id)
         {
             DDBB.ElementTable = DDBB.ElementTable.Where(m => m.Id != id).ToArray();
             return true;
         }
 
-        public void Dispose()
-        {
-
-        }
     }
     public static class DDBB
     {
-        public static Element[] ElementTable { get; set; }
+        public static Element[] ElementTable { get => Memory.DataElements; set => Memory.DataElements = value; }
     }
 }
